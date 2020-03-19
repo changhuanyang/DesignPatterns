@@ -14,7 +14,7 @@ struct Journal {
     void add(const string& entry);
 
     // persistence is a separate concern
-    void save(const string& filename);
+    // void save(const string& filename);
 };
 
 void Journal::add(const string& entry) {
@@ -27,10 +27,21 @@ void Journal::save(const string& filename) {
     for (auto& s : entries) ofs << s << endl;
 }
 
+struct PersistenceManager {
+    static void save(const Journal& j, const string& filename) {
+        ofstream ofs(filename);
+        for (auto& s : j.entries) ofs << s << endl;
+    }
+};
+
 void main() {
     Journal journal{"Dear Diary"};
     journal.add("I ate a bug");
     journal.add("I cried today");
 
-    journal.save("diary.txt");
+    // journal.save("diary.txt");
+
+    // Let persistence manager to handle persistence, and let Journal handle it's own concern.
+    PersistenceManager pm;
+    pm.save(journal, "diary.txt");
 }
