@@ -1,6 +1,15 @@
+
 # Solid Design Principles
 
 These 5 principles are introduced by Robert C. Martin( uncle Robert)
+
+## Compile
+
+`$cmake . && make`
+
+## Run
+
+`#./Open_closed_principle`
 
 ## Single Responsibility Principle
 
