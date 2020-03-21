@@ -90,9 +90,9 @@ int main() {
 
     const vector<Product*> all{&apple, &tree, &house};
 
-    BetterFilter pf;
+    BetterFilter bf;
     ColorSpecification green(Color::green);
-    auto green_things = pf.filter(all, green);
+    auto green_things = bf.filter(all, green);
     for (auto& x : green_things) {
         cout << x->name << " is green\n";
     }

@@ -22,10 +22,12 @@ void Journal::add(const string& entry) {
     entries.push_back(boost::lexical_cast<string>(count++) + ": " + entry);
 }
 
+/*
 void Journal::save(const string& filename) {
     ofstream ofs(filename);
     for (auto& s : entries) ofs << s << endl;
 }
+*/
 
 struct PersistenceManager {
     static void save(const Journal& j, const string& filename) {
@@ -34,7 +36,7 @@ struct PersistenceManager {
     }
 };
 
-void main() {
+int main() {
     Journal journal{"Dear Diary"};
     journal.add("I ate a bug");
     journal.add("I cried today");
@@ -44,4 +46,6 @@ void main() {
     // Let persistence manager to handle persistence, and let Journal handle it's own concern.
     PersistenceManager pm;
     pm.save(journal, "diary.txt");
+
+    return 0;
 }

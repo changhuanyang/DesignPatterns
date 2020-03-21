@@ -1,0 +1,7 @@
+
+cmake_minimum_required(VERSION 2.8.9)
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+project (solid_desing_principles)
+add_executable(single_responsibility_principle single_responsibility_principle.cpp)
+add_executable(Open_closed_principle Open_closed_principle.cpp)
